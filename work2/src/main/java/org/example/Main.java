@@ -10,7 +10,7 @@ public class Main {
                 new Command("ld", "b" ,"11"),
                 new Command("add"),
                 new Command("print")}; //вывод 20 25 * 45
-        ICpu cpu = new ICpu();
+        ICpu cpu = BCpu.build();
         Executer exec = new Executer(cpu);
         exec.run(prog);
         //exec.printCommand(prog);
