@@ -21,17 +21,18 @@ public class TCpu implements ICpu{
         registers.put("c", null);
         registers.put("d", null);
     }
-    public IsHandler addHandler()
+    @Override
+    public IsHandler addNext(IsHandler handler)
     {
-        if (nextProcess == null)
-        {
-
-        }
+        if (nextProcess == null) nextProcess = handler;
+        else nextProcess.addNext(handler);
+        return nextProcess;
     }
 
     @Override
     public void doCommand(String[] command) {
-        switch (command[0])
+        if (nextProcess != null) nextProcess.work(command,memory,registers);
+        /*switch (command[0])
         {
             case "ld": registers.replace(command[1], memory[Integer.parseInt(command[2])]); break;
             case "st": memory[Integer.parseInt(command[2])] = registers.get(command[1]); break;
@@ -47,6 +48,6 @@ public class TCpu implements ICpu{
             case "sub": registers.replace("d", registers.get("a") - registers.get("b")); break;
             case "mult": registers.replace("d", registers.get("a") * registers.get("b")); break;
             case "div": registers.replace("d", registers.get("a") / registers.get("b")); break;
-        }
+        }*/
     }
 }

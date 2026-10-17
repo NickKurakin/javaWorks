@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.cpuFunctions.Math;
+
 public class Main {
     static void main() {
 
