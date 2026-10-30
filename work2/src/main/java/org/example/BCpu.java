@@ -7,7 +7,7 @@ import org.example.cpuFunctions.inputOutput;
 public class BCpu {
     static ICpu build()
     {
-        ICpu newCPU = new TCpu();
+        ICpu newCPU = new Cpu();
         newCPU.addNext(new Memory());
         newCPU.addNext(new Math());
         newCPU.addNext(new inputOutput());

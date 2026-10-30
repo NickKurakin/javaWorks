@@ -3,7 +3,7 @@ package org.example;
 import java.util.Map;
 import java.util.HashMap;
 
-public class TCpu implements ICpu{
+public class Cpu implements ICpu{
     private int[] memory;
     private Map<String, Integer> registers = new HashMap<>();
     private IsHandler nextProcess;
@@ -13,7 +13,7 @@ public class TCpu implements ICpu{
                     "c", null,
                     "d", null)
     );*/
-    public TCpu()
+    public Cpu()
     {
         memory = new int[1024];
         registers.put("a", null);
